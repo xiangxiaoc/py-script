@@ -1,3 +1,10 @@
+import os
+
+dir_path, script_name = os.path.split(__file__)
+if dir_path != '':
+    os.chdir(dir_path)
+
+
 LOGGING_DIC = {
     'version': 1.0,
     'disable_existing_loggers': False,
@@ -32,7 +39,7 @@ LOGGING_DIC = {
         'file_info_handler': {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件,日志轮转
-            'filename': 'abc.log',
+            'filename': f'{dir_path}/log/abc.log',
             'maxBytes': 10 * 1024 * 1024,  # 日志大小 10M
             'backupCount': 3,  # 日志文件保存数量限制
             'encoding': 'utf-8',
@@ -41,14 +48,14 @@ LOGGING_DIC = {
         'file_deal_handler': {
             'level': 'INFO',
             'class': 'logging.FileHandler',  # 保存到文件
-            'filename': 'deal.log',  # 日志存放的路径
+            'filename': f'{dir_path}/log/deal.log',  # 日志存放的路径
             'encoding': 'utf-8',  # 日志文件的编码
             'formatter': 'standard',
         },
         'file_operate_handler': {
             'level': 'INFO',
             'class': 'logging.FileHandler',  # 保存到文件
-            'filename': 'operate.log',  # 日志存放的路径
+            'filename': f'{dir_path}/log/operate.log',  # 日志存放的路径
             'encoding': 'utf-8',  # 日志文件的编码
             'formatter': 'standard',
         },
