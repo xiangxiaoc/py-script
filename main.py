@@ -1,4 +1,7 @@
+import sys
+
 import typer
+import os
 
 import util.log
 
@@ -6,6 +9,8 @@ import util.log
 dir_path, script_name = os.path.split(__file__)
 if dir_path != '':
     os.chdir(dir_path)
+
+print(sys.path)
 
 app = typer.Typer()
 
@@ -21,6 +26,8 @@ def hello(name: str):
 
 
 if __name__ == '__main__':
+    print(sys.path)
+
     logger = util.log.get_logger()
     logger.info('123')
 
