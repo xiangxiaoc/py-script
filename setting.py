@@ -1,9 +1,9 @@
 import os
 
 dir_path, script_name = os.path.split(__file__)
+print(dir_path, script_name)
 if dir_path != '':
     os.chdir(dir_path)
-
 
 LOGGING_DIC = {
     'version': 1.0,
