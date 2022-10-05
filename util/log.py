@@ -1,8 +1,9 @@
 import logging.config
+
 import setting
 
-logging.config.dictConfig(setting.LOGGING_DIC)
 
-
-def get_logger() -> logging.Logger:
+def get_logger(log_basedir) -> logging.Logger:
+    d = setting.get_log_setting(log_basedir)
+    logging.config.dictConfig(d)
     return logging.getLogger('dsa')
