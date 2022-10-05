@@ -10,7 +10,7 @@ from core import __version__, __app_name__
 
 
 app = typer.Typer()
-# Add subtyper
+'''Add subTyper'''
 # app.add_typer()
 
 
