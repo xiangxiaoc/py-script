@@ -1,16 +1,23 @@
+import logging.config
 import pathlib
 import sys
 from typing import Optional
 
 import typer
 
+import settings
+
 parent_path = pathlib.Path(__file__).parent.parent
 sys.path.append(str(parent_path.absolute()))
 from core import __version__, __app_name__
 
+logging.config.dictConfig(settings.LOGGING_CONFIG)
+logger = logging.getLogger('cli')
 
 app = typer.Typer()
 '''Add subTyper'''
+
+
 # app.add_typer()
 
 
