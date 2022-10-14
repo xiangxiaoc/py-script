@@ -1,8 +1,4 @@
-import os
-
-LOGDIR_BASE_PATH = './'
-
-os.makedirs(LOGDIR_BASE_PATH,exist_ok=True)
+LOGDIR_BASE_PATH = './logs'
 
 LOGGING_CONFIG = {
     'version': 1.0,

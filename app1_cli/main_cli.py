@@ -1,23 +1,20 @@
-import logging.config
+import logging
 import pathlib
 import sys
 from typing import Optional
 
 import typer
 
-import settings
-
 parent_path = pathlib.Path(__file__).parent.parent
 sys.path.append(str(parent_path.absolute()))
-from core import __version__, __app_name__
+from app1_cli import __version__, __app_name__
 
-logging.config.dictConfig(settings.LOGGING_CONFIG)
-logger = logging.getLogger('cli')
+logger = logging.getLogger(__app_name__)
 
 app = typer.Typer()
-'''Add subTyper'''
 
 
+# """Add subTyper"""
 # app.add_typer()
 
 
@@ -38,6 +35,7 @@ def main(
             is_eager=True,
         )
 ) -> None:
+    """ app1 description """
     return
 
 
