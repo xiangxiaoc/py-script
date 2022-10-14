@@ -9,6 +9,13 @@ from typing import Optional
 
 import typer
 
+""" 
+Adding project root path into sys.path
+for typer-cli(typer command) to discover python module in project
+"""
+parent_path = pathlib.Path(__file__).parent
+sys.path.append(str(parent_path.absolute()))
+
 import settings
 
 """ For supporting relative path configured in settings.py. change dir to project root path """
@@ -17,13 +24,6 @@ if dir_path != '':
     os.chdir(dir_path)
 os.makedirs(settings.LOGDIR_BASE_PATH, exist_ok=True)
 logging.config.dictConfig(settings.LOGGING_CONFIG)  # will create log file defined in LOGGING_CONFIG when run this line
-
-""" 
-Adding project root path into sys.path
-for typer-cli(typer command) to discover python module in project
-"""
-parent_path = pathlib.Path(__file__).parent
-sys.path.append(str(parent_path.absolute()))
 
 # """ if this project has only one app, import app(typer.Typer) directly """
 # from app1_cli.main_cli import app
