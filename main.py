@@ -26,7 +26,7 @@ os.makedirs(settings.LOGDIR_BASE_PATH, exist_ok=True)
 logging.config.dictConfig(settings.LOGGING_CONFIG)  # will create log file defined in LOGGING_CONFIG when run this line
 
 # """ if this project has only one app, import app(typer.Typer) directly """
-# from app1_cli.main_cli import app
+# from cli.app1.main_cli import app
 #
 # """single app cli end"""
 
@@ -34,12 +34,12 @@ logging.config.dictConfig(settings.LOGGING_CONFIG)  # will create log file defin
 If your project has multiple apps, 
 import packages then use app.add_typer to add their own app object to avoid variable name conflict 
 """
-import app1_cli.main_cli
-import app2_cli.main_cli
+from cli import app1_cli
+from cli import app2_cli
 
 app = typer.Typer()
-app.add_typer(app1_cli.main_cli.app, name=app1_cli.main_cli.__app_name__)
-app.add_typer(app2_cli.main_cli.app, name=app2_cli.main_cli.__app_name__)
+app.add_typer(app1_cli.app, name=app1_cli.__app_name__)
+app.add_typer(app2_cli.app, name=app2_cli.__app_name__)
 
 __app_name__ = 'main'
 __version__ = '0.0.1'

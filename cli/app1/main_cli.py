@@ -7,7 +7,7 @@ import typer
 
 parent_path = pathlib.Path(__file__).parent.parent
 sys.path.append(str(parent_path.absolute()))
-from app2_cli import __version__, __app_name__
+from cli.app1 import __version__, __app_name__
 
 logger = logging.getLogger(__app_name__)
 
@@ -35,7 +35,7 @@ def main(
             is_eager=True,
         )
 ) -> None:
-    """ app2 description """
+    """ app1 description """
     return
 
 

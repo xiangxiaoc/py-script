@@ -31,7 +31,7 @@ LOGGING_CONFIG = {
         'file_info_handler': {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件,日志轮转
-            'filename': f'{LOGDIR_BASE_PATH}/abc.log',
+            'filename': f'{LOGDIR_BASE_PATH}/main.py.log',
             'maxBytes': 10 * 1024 * 1024,  # 日志大小 10M
             'backupCount': 3,  # 日志文件保存数量限制
             'encoding': 'utf-8',
