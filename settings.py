@@ -1,3 +1,5 @@
+import textwrap
+
 LOGDIR_BASE_PATH = './logs'
 
 LOGGING_CONFIG = {
@@ -6,8 +8,15 @@ LOGGING_CONFIG = {
     # log format
     'formatters': {
         'standard': {
-            'format': '%(asctime)s %(threadName)s:%(thread)d [%(name)s] %(levelname)s [%(pathname)s:%(lineno)d] %(message)s',
+            'format': textwrap.dedent("""\
+            %(asctime)s %(threadName)s:%(thread)d [%(name)s] %(levelname)s [%(pathname)s:%(lineno)d] %(message)s\
+            """),
             'datefmt': '%Y-%m-%d %H:%M:%S',
+        },
+        'cli_console': {
+            'format': textwrap.dedent("""\
+            %(asctime)s %(thread)d:%(threadName)s [%(filename)s:%(lineno)d] [%(name)s] [%(levelname)s] %(message)s\
+            """),
         },
         'simple': {
             'format': '%(asctime)s [%(name)s] %(levelname)s -- %(message)s',
@@ -45,10 +54,15 @@ LOGGING_CONFIG = {
             'level': 'DEBUG',  # 日志记录的级别限制
             'propagate': False,  # 默认为True，向上（更高级别的logger）传递，设置为False即可，否则会一份日志向上层层传递
         },
+        'file_info': {
+            'handlers': ['file_info_handler'],
+            'level': 'INFO',
+            'propagate': False,
+        },
         # 默认日志记录器，如果没有在这里匹配上日志记录器，则使用次日志记录器，并按创建日志记录器的名字命名
         '': {
-            'handlers': ['console_info_handler', 'file_info_handler'],
-            'level': 'INFO',
+            'handlers': ['console_debug_handler', 'file_info_handler'],
+            'level': 'DEBUG',
             'propagate': False,
         },
     }
