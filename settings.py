@@ -1,5 +1,13 @@
+"""
+Project Main Settings
+"""
+
 import textwrap
 
+'''
+########################################################################################################################
+Logging Configuration
+'''
 LOGDIR_BASE_PATH = './logs'
 
 LOGGING_CONFIG = {
