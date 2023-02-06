@@ -11,7 +11,7 @@ from cli.app2 import __version__, __app_name__
 
 logger = logging.getLogger(__app_name__)
 
-app = typer.Typer()
+app = typer.Typer(name=__app_name__)
 
 
 # """Add subTyper"""
