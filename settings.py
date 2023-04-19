@@ -27,7 +27,7 @@ LOGGING_CONFIG = {
             """),
         },
         'simple': {
-            'format': '%(asctime)s [%(name)s] %(levelname)s -- %(message)s',
+            'format': '%(asctime)s [%(filename)s:%(lineno)d] [%(name)s] %(levelname)s -- %(message)s',
             'datefmt': '%Y-%m-%d %H:%M:%S',
         },
     },
