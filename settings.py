@@ -17,13 +17,13 @@ LOGGING_CONFIG = {
     'formatters': {
         'standard': {
             'format': textwrap.dedent("""\
-            %(asctime)s %(threadName)s:%(thread)d [%(name)s] %(levelname)s [%(pathname)s:%(lineno)d] %(message)s\
+            %(asctime)s PID=%(process)d %(threadName)s [%(filename)s:%(lineno)d] %(name)s: [%(levelname)s] %(message)s\
             """),
             'datefmt': '%Y-%m-%d %H:%M:%S',
         },
         'cli_console': {
             'format': textwrap.dedent("""\
-            %(asctime)s %(thread)d:%(threadName)s [%(filename)s:%(lineno)d] [%(name)s] [%(levelname)s] %(message)s\
+            %(asctime)s PID=%(process)d %(threadName)s [%(filename)s:%(lineno)d] %(name)s: [%(levelname)s] %(message)s\
             """),
         },
         'simple': {
