@@ -37,12 +37,12 @@ import packages then use app.add_typer to add their own app object to avoid vari
 from cli import app1_cli
 from cli import app2_cli
 
-app = typer.Typer()
+__app_name__ = 'Main App Name'
+__version__ = '0.0.1'
+
+app = typer.Typer(name=__app_name__)
 app.add_typer(app1_cli.app, name=app1_cli.__app_name__)
 app.add_typer(app2_cli.app, name=app2_cli.__app_name__)
-
-__app_name__ = 'main'
-__version__ = '0.0.1'
 
 
 def _version_callback(value: bool) -> None:
