@@ -14,6 +14,7 @@ LOGGING_CONFIG = {
     'version': 1.0,
     'disable_existing_loggers': False,
     # log format
+    # Reference: https://docs.python.org/zh-cn/3/library/logging.html#logrecord-attributes
     'formatters': {
         'standard': {
             'format': textwrap.dedent("""\
