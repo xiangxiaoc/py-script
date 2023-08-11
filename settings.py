@@ -2,8 +2,6 @@
 Project Main Settings
 """
 
-import textwrap
-
 """
 ########################################################################################################################
 Logging Configuration
@@ -17,24 +15,16 @@ LOGGING_CONFIG = {
     # Reference: https://docs.python.org/zh-cn/3/library/logging.html#logrecord-attributes
     "formatters": {
         "standard": {
-            "format": textwrap.dedent(
-                """\
-            %(asctime)s PID=%(process)d thread=%(threadName)s logger=%(name)s %(filename)s:%(lineno)d [%(levelname)s] %(message)s\
-            """
-            ),
-            "datefmt": "%Y-%m-%dT%H:%M:%S%z",
+            "format": "%(asctime)s PID=%(process)d thread=%(threadName)s logger=%(name)s %(filename)s:%(lineno)d [%(levelname)s] %(message)s",
+            "datefmt": "%Y-%m-%d|%H:%M:%S%z",
         },
         "cli_console": {
-            "format": textwrap.dedent(
-                """\
-            %(asctime)s thread=%(threadName)s logger=%(name)s %(filename)s:%(lineno)d [%(levelname)s] %(message)s\
-            """
-            ),
+            "format": "%(asctime)s thread=%(threadName)s logger=%(name)s %(filename)s:%(lineno)d [%(levelname)s] %(message)s",
             "datefmt": "%Y-%m-%d|%H:%M:%S%z",
         },
         "simple": {
             "format": "%(asctime)s logger=%(name)s %(filename)s:%(lineno)d [%(levelname)s] %(message)s",
-            "datefmt": "%Y-%m-%dT%H:%M:%S%z",
+            "datefmt": "%Y-%m-%d|%H:%M:%S%z",
         },
     },
     # log filter
