@@ -18,18 +18,18 @@ LOGGING_CONFIG = {
     'formatters': {
         'standard': {
             'format': textwrap.dedent("""\
-            %(asctime)s PID=%(process)d %(threadName)s %(filename)s:%(lineno)d %(name)s: [%(levelname)s] %(message)s\
+            %(asctime)s PID=%(process)d thread=%(threadName)s logger=%(name)s %(filename)s:%(lineno)d [%(levelname)s] %(message)s\
             """),
-            'datefmt': '%Y-%m-%d %H:%M:%S',
+            'datefmt': '%Y-%m-%dT%H:%M:%S',
         },
         'cli_console': {
             'format': textwrap.dedent("""\
-            %(asctime)s %(threadName)s %(filename)s:%(lineno)d %(name)s: [%(levelname)s] %(message)s\
+            %(asctime)s thread=%(threadName)s logger=%(name)s %(filename)s:%(lineno)d [%(levelname)s] %(message)s\
             """),
         },
         'simple': {
-            'format': '%(asctime)s [%(filename)s:%(lineno)d] [%(name)s] %(levelname)s -- %(message)s',
-            'datefmt': '%Y-%m-%d %H:%M:%S',
+            'format': '%(asctime)s logger=%(name)s %(filename)s:%(lineno)d [%(levelname)s] %(message)s',
+            'datefmt': '%Y-%m-%dT%H:%M:%S',
         },
     },
     # log filter
@@ -45,8 +45,8 @@ LOGGING_CONFIG = {
             'level': 'INFO',
             'class': 'logging.handlers.RotatingFileHandler',  # 保存到文件,日志轮转
             'filename': f'{LOGDIR_BASE_PATH}/main.py.log',
-            'maxBytes': 10 * 1024 * 1024,  # 日志大小 10M
-            'backupCount': 3,  # 日志文件保存数量限制
+            'maxBytes': 100 * 1024 * 1024,  # 日志大小 10M
+            'backupCount': 10,  # 日志文件保存数量限制
             'encoding': 'utf-8',
             'formatter': 'standard',
         },
