@@ -40,8 +40,8 @@ LOGGING_CONFIG = {
             "level": "INFO",
             "class": "logging.handlers.RotatingFileHandler",  # 保存到文件,日志轮转
             "filename": f"{LOGDIR_BASE_PATH}/main.log",
-            "maxBytes": 100 * 1024 * 1024,  # 日志大小 10M
-            "backupCount": 10,  # 日志文件保存数量限制
+            "maxBytes": 100 * 1024 * 1024,  # 单个文件日志大小，单位：字节
+            "backupCount": 10,  # 日志文件数量限制
             "encoding": "utf-8",
             "formatter": "standard",
         },
